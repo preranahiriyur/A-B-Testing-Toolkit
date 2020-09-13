@@ -106,13 +106,6 @@ server <- function(input, output, session) {
   alpha <- reactive({1-input$conflevel/100})
   power <- reactive({input$power/100})
   p1 <- reactive({input$baseline/100})
-  
-  # effectsize <- reactiveValues()
-  # 
-  # observe({
-  #   effectsize$x <- input$relative
-  #   effectsize$y <- ifelse(state$x == T, input$effectsize/100*input$baseline/100, input$effectsize/100)
-  # })
   x <- reactive({input$relative})
   effectsize <- reactive({input$effectsize/100})
   effect <- reactive(if (x() == T) effectsize()*p1() else effectsize())
